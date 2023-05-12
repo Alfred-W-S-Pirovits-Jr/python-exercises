@@ -1,0 +1,13 @@
+'''
+you can do mathematics without functions in python
+single quotes or double quotes
+multi line strings triple quotes
+# for single line comments
+== can be used for strings spacing matters
+"hello " != "hello"
+concatenation
+
+map iterates
+map(str, [1,2,3])
+returns ['1.,'2','3']
+'''
