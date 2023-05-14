@@ -24,11 +24,10 @@ def continue_or_error(): #Loops through the options until user chooses to exit
     while user_option != 4:
         prompt() #loop and a break?
         if user_option == '1':
-            current_balance() # insert a view current balance function
-            break
+            current_balance() # insert a view current balance function and loops to continue DONE!!!
         elif user_option == '2': # insert debit function
             debit()
-            break
+            
         elif user_option == '3': # insert credit function
             credit()
             break
@@ -39,10 +38,22 @@ def continue_or_error(): #Loops through the options until user chooses to exit
             print(f'Invalid choice: {user_option} \n')
 
 def current_balance(): #read the current balance from the balance.txt file?
-    print(f'\nYour current balance is 100.\n')
+    with open('balance.txt', 'r') as f:
+        last_line = f.readlines()[-1]
+    print(f'\nYour current balance is {last_line}.\n')
 
 def debit():
-    input(f'\nHow much would you like to wittdraw? ') # if entry is less than balance then balance minus entry
+    with open('balance.txt', 'r') as f:
+        last_line = int(f.readlines()[-1])
+        withdrawal = int(input(f'\nHow much would you like to wittdraw? '))
+    if withdrawal <= last_line:
+        balance = last_line - withdrawal
+        with open('balance.txt', 'a') as f:
+            f.writelines([f'\n{balance}'])  # if entry is less than balance then balance minus entry
+        print(f'\nYou have ${balance} remaining.\n')
+    else:
+        print(f'\nYou only have ${last_line} in your account.\nWithdrawing ${withdrawal} will overdraft your account!\n')
+
      # else print your available balance is {} you will overdraw account
 
 def credit(): # adds the user input to the total balance
