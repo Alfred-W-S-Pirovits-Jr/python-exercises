@@ -1,8 +1,18 @@
-from tkinter import N
+
+import os
 
 user_option = 0
+balance = 0
+
+if os.path.exists('balance.txt'):
+    with open('balance.txt', 'r') as f:
+        f.readlines()[-1]
+else:
+    with open('balance.txt', 'w') as f:
+        f.writelines([f'\n{balance}'])
 
 def main():
+
     print('\n ~~~ Welcome to your terminal checkbook! ~~~ \n')
      #initialize user_options
     continue_or_error() # prompt function to get user input
@@ -39,8 +49,8 @@ def continue_or_error(): #Loops through the options until user chooses to exit
 
 def current_balance(): #read the current balance from the balance.txt file?
     with open('balance.txt', 'r') as f:
-        last_line = f.readlines()[-1]
-    print(f'\nYour current balance is {last_line}.\n')
+        last_line = float(f.readlines()[-1])
+    print(f'\nYour current balance is {last_line:,.2f}.\n')
     continue_prompt()
 
 def debit():
@@ -56,11 +66,11 @@ def debit():
             balance = last_line - withdrawal
             with open('balance.txt', 'a') as f:
                 f.writelines([f'\n{balance}'])  # if entry is less than balance then balance minus entry
-            print(f'\nYou have Withdrawn ${withdrawal: .2f}:')
-            print(f'\nYou have ${balance: .2f} remaining.\n')
+            print(f'\nYou have Withdrawn ${withdrawal:,.2f}:')
+            print(f'\nYou have ${balance:,.2f} remaining.\n')
             continue_prompt()
         else:
-            print(f'\nYou only have ${last_line: .2f} in your account.\nWithdrawing ${withdrawal: .2f} will overdraft your account!\n\n')
+            print(f'\nYou only have ${last_line:,.2f} in your account.\nWithdrawing ${withdrawal:,.2f} will overdraft your account!\n\n')
             continue_prompt()
     else:
         print('Please type in a valid number: ')
@@ -78,8 +88,8 @@ def credit(): # adds the user input to the total balance
             balance = last_line + deposit
             with open('balance.txt', 'a') as f:
                 f.writelines([f'\n{balance}'])
-            print(f'\nYou have deposited ${deposit: .2f}:')
-            print(f'\nYou have ${balance: .2f} remaining.\n')
+            print(f'\nYou have deposited ${deposit:,.2f}:')
+            print(f'\nYou have ${balance:,.2f} in your account.\n')
             continue_prompt()
         elif deposit < 0:
             print('You cannot deposit a negative number.  That would be a WITHDRAWAL! ')
@@ -140,5 +150,3 @@ def continue_or_error(): #Do I need to figure out how to loop this?
     else:
         print(f'Invalid choice: {user_input} \n')
 """
-
-
