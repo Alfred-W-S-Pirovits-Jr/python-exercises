@@ -1,4 +1,4 @@
-'''
+
 # 1a.  
 day_of_week = input("What day of the week is it? ")
 if day_of_week == 'Monday':
@@ -22,8 +22,8 @@ if number_of_hours_worked <= 40:
 else:
     print(f"Your pay is {(40 * hourly_rate) + (number_of_hours_worked - 40) * 1.5 * hourly_rate}")
 
-'''
-'''
+
+
 # 2a.
 
 i = 5
@@ -57,53 +57,53 @@ numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 for num in numbers:
     print(num * int(num))
 
-    ''' 
+
 
 # 2ci
-
-while positive_integer >= 1:
-    positive_integer = input("Type in a positive integer: ")
-    if positive_integer.isdigit():
-        positive_integer = int(positive_integer)
-        if positive_integer > 0:
+positive_integer = int(input("Type in a positive integer: "))
+while True:
+    if positive_integer >= 1:
             print(positive_integer)
             positive_integer -= 1
-        else:
-            break
     else:
-        positive_integer = input("Type in a positive integer: ")
-
-        CLASS SOLUTION
-while True:
-    user_input = input('give me a positive integer':)
-
-    if user_input.isdigit();
-        print('Thanks for give me a digit')
-        user_input = int(user_input)
-
-        if user_input > 0:
-        print('Thank you for giveing me a positive number.')
         break
+
+
+#         CLASS SOLUTION
+# while True:
+#     user_input = input('give me a positive integer':)
+
+#     if user_input.isdigit();
+#         print('Thanks for give me a digit')
+#         user_input = int(user_input)
+
+#         if user_input > 0:
+#         print('Thank you for giveing me a positive number.')
+#         break
     
-else:
-    print("That is not a positive integer)
+# else:
+#     print("That is not a positive integer)
 
 
-while user_input > 0
-    print(user_input)
-    user_input -= 1
+# while user_input > 0
+#     print(user_input)
+#     user_input -= 1
 
 
 # 2cii
-positive_integer = int(input("Type in a positive integer: "))
+
+while True:
+    positive_integer = int(input("Type in a positive integer: "))
+    if positive_integer >= 1:
+        print('Great! lets count up to {positive_integer}')
+        break
+        
 i = 0
 while i <= positive_integer:
     print(i)
     i += 1
 
-    CLASS SOLUTION
-while True:
-    user_input = input('Giv')
+
 
 
 # 2 ciii
@@ -135,26 +135,26 @@ while odd < 50:
         else:
             print(f"Here is an odd number: {odd}")
             odd += 2
-CLASS SOLUTION
-while True:
-    user_input = input('Give me a positive number between 1 and 50: ')
+# CLASS SOLUTION
+# while True:
+#     user_input = input('Give me a positive number between 1 and 50: ')
 
-    if user_input.isdigit():
-        user_input = int(user_input)
+#     if user_input.isdigit():
+#         user_input = int(user_input)
 
-        if user_input > 0 and user_input <= 50 and user_input % 2 == 1:
-            print('Thank you for giving me a positive odd number between 1 and 50!)
-            break
-    else:
-        print("That is not a positive odd number between 1 and 50!')
+#         if user_input > 0 and user_input <= 50 and user_input % 2 == 1:
+#             print('Thank you for giving me a positive odd number between 1 and 50!')
+#             break
+#     else:
+#         print("That is not a positive odd number between 1 and 50!")
 
-for i in range(1,50):
-    if i == user_input:
-        print(f'Yikes! Skipping number: {i}')
-        continue
-    if i%2 == 1:
-        print(f'Here is an odd number: {i}')
-'''
+# for i in range(1,50):
+#     if i == user_input:
+#         print(f'Yikes! Skipping number: {i}')
+#         continue
+#     if i%2 == 1:
+#         print(f'Here is an odd number: {i}')
+
 # 3.  
 for n in range(100):
     if n % 3 == 0 and n % 5 == 0:
@@ -167,23 +167,27 @@ for n in range(100):
         print(n)
 
 # 4. ASK THE USER IF HE WANTS TO CONTINUE
-user_prompt = input("Do you want to continue? (y/n)")
-if user_prompt == 'y':
-    user_input = int(input("What number would you like to go up to? "))
-    print()
-    print("Here is your Table!")
-    print("number | squared | cubed")
-    print("------ | ------- | -----")
-    i = 0
-    while i <= user_input:
-        print(i, "      | ", i * i, "       | ", i * i * i)
-        i += 1
-else: 
-    print("OK! Guh Bie")
 
-#From class 
-for i in range(1, user_input + 1):
-    print(f''{i}{' ' * (7 - len(str(i)))}|{i**2}{' ' * (7 - len(str(i)))}|{i**3}{' ' * (7 - len(str(i)))}'')
+while True:
+    user_prompt = input("Do you want to continue? (y/n)")
+    if user_prompt == 'n':
+        print("OK! Guh Bie")
+        break
+    elif user_prompt == 'y':
+        user_input = int(input("What number would you like to go up to? "))
+        print()
+        print("Here is your Table!")
+        print("number | squared | cubed")
+        print("------ | ------- | -----")
+        i = 0
+        while i <= user_input:
+            print(i, "      | ", i * i, "       | ", i * i * i)
+            i += 1
+    else:
+        print("Try that again!")
+# From class 
+# for i in range(1, user_input + 1):
+#     print(f''{i}{' ' * (7 - len(str(i)))}|{i**2}{' ' * (7 - len(str(i)))}|{i**3}{' ' * (7 - len(str(i)))}'')
 
 # 5.
 grade = int(input("Enter a numerical grade from 0 to 100: "))
